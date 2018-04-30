@@ -3,7 +3,7 @@ package br.com.tiagooliveira.comingsoon.domain
 import com.google.gson.annotations.SerializedName
 
 data class UpcomingMovieDetail( @SerializedName("id") val id : Int = 0,
-                                @SerializedName("genders") val genders : UpcomingMovieGenders,
+                                @SerializedName("genres") val genres : ArrayList<UpcomingMovieGenres> = ArrayList(),
                                 @SerializedName("original_language") val originalLanguage : String,
                                 @SerializedName("release_date") val releaseDate: String,
                                 @SerializedName("overview") val overview: String?,
