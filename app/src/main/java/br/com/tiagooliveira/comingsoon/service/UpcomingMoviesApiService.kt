@@ -11,7 +11,8 @@ import retrofit2.http.Query
 interface UpcomingMoviesApiService{
 
     @GET("/3/movie/upcoming")
-    fun getUpcomingMovies(@Query("sort_by") sort_by: String = Constants.sortByReleaseDate,
+    fun getUpcomingMovies(@Query("page") page: Int = 1,
+                          @Query("sort_by") sort_by: String = Constants.sortByReleaseDate,
                           @Query("api_key") apikey: String = Constants.apiKey
                           )
             : Call<UpcomingMovieResult>

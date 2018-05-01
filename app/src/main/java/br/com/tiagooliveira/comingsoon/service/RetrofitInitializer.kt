@@ -21,11 +21,11 @@ class RetrofitInitializer {
         upcomingMovierApiService = retrofit.create(UpcomingMoviesApiService::class.java)
     }
 
-    fun getUpcomingMovies(sortBy: String?) : Call<UpcomingMovieResult> {
+    fun getUpcomingMovies(page:Int, sortBy: String?) : Call<UpcomingMovieResult> {
         if(!sortBy.isNullOrEmpty())
-            return upcomingMovierApiService.getUpcomingMovies(sortBy!!)
+            return upcomingMovierApiService.getUpcomingMovies(page, sortBy!!)
         else
-            return upcomingMovierApiService.getUpcomingMovies()
+            return upcomingMovierApiService.getUpcomingMovies(page)
     }
 
     fun getUpcomingMovieDetails(id: Int) : Call<UpcomingMovieDetail>{
