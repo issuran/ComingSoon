@@ -2,5 +2,14 @@
     <string name="app_name">Coming Soon</string>
 
     <!-- Main screen, card values -->
-    <string name="release_date">Release Date: %1$s</string>
+    <string name="release_date">Release: %1$s</string>
+
+    <!-- Details scree -->
+    <string name="title_label">Title</string>
+    <string name="release_date_label">Release</string>
+    <string name="genrer_label">Genrer</string>
+    <string name="description_label">Description</string>
+    <string name="duration_label">Duration</string>
+    <string name="duration_time">%1$s minutes</string>
+
 </resources>

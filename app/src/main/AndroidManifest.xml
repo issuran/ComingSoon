@@ -19,6 +19,11 @@
             </intent-filter>
 
         </activity>
+        <activity
+            android:name=".activity.MovieDetailsActivity"
+            android:label="Movie Details"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
     </application>
 </manifest>

@@ -9,5 +9,6 @@ class Constants{
         val apiKey = "76064bf9310e5eb114f1665c3cde25e9"
         val sortByReleaseDate = "release_date.asc"
         val sortByPopularity = "popularity.desc"
+        val movie_identifier = "movie_identifier"
     }
 }
