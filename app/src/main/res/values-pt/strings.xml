@@ -2,5 +2,14 @@
     <string name="app_name">Próximos Lançamentos</string>
 
     <!-- Main screen, card values -->
-    <string name="release_date">Data de Lançamento: %1$s</string>
+    <string name="release_date">Lançamento: %1$s</string>
+
+    <!-- Details scree -->
+    <string name="title_label">Título</string>
+    <string name="release_date_label">Lançamento</string>
+    <string name="genrer_label">Gênero</string>
+    <string name="description_label">Descrição</string>
+    <string name="duration_label">Duração</string>
+    <string name="duration_time">%1$s minutos</string>
+
 </resources>

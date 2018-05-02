@@ -1,5 +1,6 @@
 package br.com.tiagooliveira.comingsoon.adapter
 
+import android.content.Intent
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import br.com.tiagooliveira.comingsoon.R
+import br.com.tiagooliveira.comingsoon.activity.MovieDetailsActivity
 import br.com.tiagooliveira.comingsoon.domain.UpcomingMovie
 import br.com.tiagooliveira.comingsoon.utils.constants.Constants
 import com.squareup.picasso.Callback
@@ -79,8 +81,9 @@ class UpcomingMovieAdapter(
         // Add click event in the line
         holder.itemView.setOnClickListener(View.OnClickListener {
             _: View? -> run{
-                var a = movie.title
-                var b = movie.id
+            var intent : Intent = Intent(context, MovieDetailsActivity::class.java)
+            intent.putExtra(Constants.movie_identifier, movie.id)
+            context.startActivity(intent)
             }
         })
     }
