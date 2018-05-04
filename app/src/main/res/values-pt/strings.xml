@@ -7,7 +7,7 @@
     <!-- Details scree -->
     <string name="title_label">Título</string>
     <string name="release_date_label">Lançamento</string>
-    <string name="genrer_label">Gênero</string>
+    <string name="genre_label">Gênero</string>
     <string name="description_label">Descrição</string>
     <string name="duration_label">Duração</string>
     <string name="duration_time">%1$s minutos</string>

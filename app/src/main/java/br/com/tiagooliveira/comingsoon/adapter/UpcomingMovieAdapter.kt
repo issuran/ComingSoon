@@ -1,41 +1,25 @@
 package br.com.tiagooliveira.comingsoon.adapter
 
 import android.content.Intent
-import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
 import br.com.tiagooliveira.comingsoon.R
 import br.com.tiagooliveira.comingsoon.activity.MovieDetailsActivity
 import br.com.tiagooliveira.comingsoon.domain.UpcomingMovie
 import br.com.tiagooliveira.comingsoon.utils.constants.Constants
+import br.com.tiagooliveira.comingsoon.utils.extensions.loadImage
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import java.lang.Exception
+import kotlinx.android.synthetic.main.adapter_upcoming_movie.view.*
 
 class UpcomingMovieAdapter(
     val movies: ArrayList<UpcomingMovie>) : RecyclerView.Adapter<UpcomingMovieAdapter.UpcomingMovieAdapterHolder>(){
 
     // Viewholder with the views
-    class UpcomingMovieAdapterHolder(view: View) : RecyclerView.ViewHolder(view){
-        var tTitle: TextView
-        var tReleaseDate: TextView
-        var imgMovieImage: ImageView
-        var progress: ProgressBar
-        var cardView: CardView
-        init {
-            // Save views in the Holder
-            tTitle = view.findViewById(R.id.tTitle)
-            tReleaseDate = view.findViewById(R.id.tReleaseDate)
-            imgMovieImage = view.findViewById(R.id.imgUpcomingMovie)
-            progress = view.findViewById(R.id.progress)
-            cardView = view.findViewById(R.id.movieCardView)
-        }
-    }
+    class UpcomingMovieAdapterHolder(view: View) : RecyclerView.ViewHolder(view)
 
     // Return qtd of movies in the list
     override fun getItemCount() = this.movies.size
@@ -54,37 +38,28 @@ class UpcomingMovieAdapter(
     override fun onBindViewHolder(holder: UpcomingMovieAdapterHolder, position: Int) {
         val context = holder.itemView.context
 
-        // Get movie object
-        val movie = movies[position]
+        val view = holder.itemView
 
-        // Update movie's values
-        holder.tTitle.text = movie.title
-        holder.tReleaseDate.setText(context.getString(R.string.release_date, movie.releaseDate))
-        holder.progress.visibility = View.VISIBLE
+        with(view){
+            // Get movie object
+            val movie = movies[position]
 
-        // Download the image and display ProgressBar
-        Picasso.get()
-                .load(Constants.baseImageUrl + movie.posterPath)
-                .placeholder(R.drawable.placeholder_movie)
-                .error(R.drawable.placeholder_movie)
-                .into(holder.imgMovieImage, object : Callback{
-                    override fun onSuccess() {
-                        // Download OK
-                        holder.progress.visibility = View.GONE
-                    }
+            // Update movie's values
+            tTitle.text = movie.title
+            tReleaseDate.setText(context.getString(R.string.release_date, movie.releaseDate))
+            progress.visibility = View.VISIBLE
 
-                    override fun onError(e: Exception?) {
-                        holder.progress.visibility = View.GONE
-                    }
-                })
+            // Download the image and display ProgressBar
+            imgUpcomingMovie.loadImage("${Constants.baseImageUrl}${movie.posterPath}")
 
-        // Add click event in the line
-        holder.itemView.setOnClickListener(View.OnClickListener {
-            _: View? -> run{
-            var intent : Intent = Intent(context, MovieDetailsActivity::class.java)
-            intent.putExtra(Constants.movie_identifier, movie.id)
-            context.startActivity(intent)
+            // Add click event in the line
+            holder.itemView.setOnClickListener({
+                _: View? -> run{
+                val intent = Intent(context, MovieDetailsActivity::class.java)
+                intent.putExtra(Constants.movie_identifier, movie.id)
+                context.startActivity(intent)
             }
-        })
+            })
+        }
     }
 }

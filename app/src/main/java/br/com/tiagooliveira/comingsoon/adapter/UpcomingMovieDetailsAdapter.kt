@@ -15,20 +15,19 @@ class UpcomingMovieDetailsAdapter(val context: Context, val dataSource: ArrayLis
     val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val rowView = inflater.inflate(R.layout.adapter_genrer_row, parent, false)
+        val rowView = inflater.inflate(R.layout.adapter_genre_row, parent, false)
 
-        val title = rowView.findViewById<TextView>(R.id.tGenrer)
+        val title = rowView.findViewById<TextView>(R.id.tGenre)
 
-        val imgGenrer = rowView.findViewById<ImageView>(R.id.imgGenrer)
+        val imgGenre = rowView.findViewById<ImageView>(R.id.imgGenre)
 
-        val genrer = getItem(position) as UpcomingMovieGenres
+        val genre = getItem(position) as UpcomingMovieGenres
 
-        getImgGenrer(genrer.id).let{
-            imgGenrer.setImageResource(it!!)
+        getImgGenre(genre.id).let{
+            imgGenre.setImageResource(it!!)
         }
 
-        title.text = genrer.gender
-
+        title.text = genre.gender
 
         return rowView
     }
@@ -45,7 +44,7 @@ class UpcomingMovieDetailsAdapter(val context: Context, val dataSource: ArrayLis
         return dataSource.size
     }
 
-    fun getImgGenrer(id: Int): Int?{
+    fun getImgGenre(id: Int): Int?{
 
             when(id){
                 28 -> return R.drawable.ic_action
