@@ -12,4 +12,7 @@
     <string name="duration_label">Duração</string>
     <string name="duration_time">%1$s minutos</string>
 
+    <!-- Application -->
+    <string name="application_error">Configure esta classe no AndroidManifest.xml</string>
+
 </resources>
