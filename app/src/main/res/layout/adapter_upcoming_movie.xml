@@ -45,7 +45,7 @@
                 card_view:cardElevation="6dp">
 
                 <!-- Movie image -->
-                <ImageView
+                <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/imgUpcomingMovie"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"

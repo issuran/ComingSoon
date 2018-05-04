@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="?attr/colorPrimary">
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/imgMovieDetails"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
